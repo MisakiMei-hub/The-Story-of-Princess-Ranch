@@ -63,9 +63,11 @@ The original move logic was too strict and could interrupt movement while the fi
 
 ## Screenshots
 
-- `docs/gzmc_article_1.png`
-- `docs/gzmc_article_2.png`
-- `docs/gzmc_article_3.png`
+<img width="2670" height="1200" alt="gzmc_article_1" src="https://github.com/user-attachments/assets/2ddb2878-5d24-4e99-baa5-f4b74080cd0b" />
+
+<img width="2670" height="1200" alt="gzmc_article_2" src="https://github.com/user-attachments/assets/d2c957fa-858b-42fe-b437-1472af43a24e" />
+
+<img width="2670" height="1200" alt="gzmc_article_3" src="https://github.com/user-attachments/assets/0243f729-a18c-458f-8059-bc370838a58c" />
 
 ## Notes
 
