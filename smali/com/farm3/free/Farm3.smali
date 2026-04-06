@@ -219,139 +219,35 @@
 .end method
 
 .method private releaseService()V
-    .locals 2
+    .locals 1
 
     .prologue
-    const/4 v1, 0x0
-
-    .line 380
-    iget-object v0, p0, Lcom/farm3/free/Farm3;->armCon:Lcom/farm3/free/Farm3$ArmInterfaceConnection;
-
-    if-eqz v0, :cond_0
-
-    .line 381
-    iget-object v0, p0, Lcom/farm3/free/Farm3;->armCon:Lcom/farm3/free/Farm3$ArmInterfaceConnection;
-
-    invoke-virtual {p0, v0}, Lcom/farm3/free/Farm3;->unbindService(Landroid/content/ServiceConnection;)V
-
-    .line 382
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/farm3/free/Farm3;->armCon:Lcom/farm3/free/Farm3$ArmInterfaceConnection;
 
-    .line 383
-    iput-boolean v1, p0, Lcom/farm3/free/Farm3;->bConnect:Z
+    iput-object v0, p0, Lcom/farm3/free/Farm3;->armInterface:Lcom/lgt/arm/ArmInterface;
 
-    .line 385
-    :cond_0
-    iput-boolean v1, p0, Lcom/farm3/free/Farm3;->bInterface:Z
+    iput-object v0, p0, Lcom/farm3/free/Farm3;->BillSock:Lcom/lguplus/common/bill/IBillSocket;
 
-    .line 386
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/farm3/free/Farm3;->bConnect:Z
+
+    iput-boolean v0, p0, Lcom/farm3/free/Farm3;->bInterface:Z
+
     return-void
 .end method
 
 .method private runService()Z
-    .locals 6
+    .locals 1
 
     .prologue
-    const/4 v5, 0x1
-
-    .line 361
-    const/4 v2, 0x1
-
-    :try_start_0
-    iput-boolean v2, p0, Lcom/farm3/free/Farm3;->bInterface:Z
-
-    .line 362
-    iget-object v2, p0, Lcom/farm3/free/Farm3;->armCon:Lcom/farm3/free/Farm3$ArmInterfaceConnection;
-
-    if-nez v2, :cond_0
-
-    .line 363
-    new-instance v2, Lcom/farm3/free/Farm3$ArmInterfaceConnection;
-
-    invoke-direct {v2, p0}, Lcom/farm3/free/Farm3$ArmInterfaceConnection;-><init>(Lcom/farm3/free/Farm3;)V
-
-    iput-object v2, p0, Lcom/farm3/free/Farm3;->armCon:Lcom/farm3/free/Farm3$ArmInterfaceConnection;
-
-    .line 364
-    new-instance v2, Landroid/content/Intent;
-
-    const-class v3, Lcom/lgt/arm/ArmInterface;
-
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    iget-object v3, p0, Lcom/farm3/free/Farm3;->armCon:Lcom/farm3/free/Farm3$ArmInterfaceConnection;
-
-    const/4 v4, 0x1
-
-    invoke-virtual {p0, v2, v3, v4}, Lcom/farm3/free/Farm3;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
-
-    move-result v2
-
-    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    .line 366
-    .local v0, "conRes":Ljava/lang/Boolean;
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    move v2, v5
-
-    .line 376
-    .end local v0    # "conRes":Ljava/lang/Boolean;
-    :goto_0
-    return v2
-
-    .line 368
-    :catch_0
-    move-exception v2
-
-    move-object v1, v2
-
-    .line 369
-    .local v1, "e":Ljava/lang/Exception;
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
-
-    .line 370
     invoke-direct {p0}, Lcom/farm3/free/Farm3;->releaseService()V
 
-    .line 372
-    .end local v1    # "e":Ljava/lang/Exception;
-    :cond_0
-    invoke-direct {p0}, Lcom/farm3/free/Farm3;->releaseService()V
+    const/4 v0, 0x0
 
-    .line 373
-    sget-object v2, Lcom/farm3/free/Farm3;->mRes:Landroid/content/res/Resources;
-
-    const v3, 0x7f050008
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/farm3/free/Farm3;->resMsg:Ljava/lang/String;
-
-    .line 374
-    iget-object v2, p0, Lcom/farm3/free/Farm3;->resMsg:Ljava/lang/String;
-
-    invoke-virtual {p0, p0, v2}, Lcom/farm3/free/Farm3;->ShowToast(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 376
-    const/4 v2, 0x0
-
-    goto :goto_0
+    return v0
 .end method
 
 .method public static final shortToByte(S)[B
@@ -394,143 +290,21 @@
 
 # virtual methods
 .method Connect()Z
-    .locals 4
+    .locals 1
 
     .prologue
-    .line 157
-    :try_start_0
-    iget-object v0, p0, Lcom/farm3/free/Farm3;->BillSock:Lcom/lguplus/common/bill/IBillSocket;
-
-    iget-object v1, p0, Lcom/farm3/free/Farm3;->APPID:Ljava/lang/String;
-
-    iget-object v2, p0, Lcom/farm3/free/Farm3;->mAddr:Ljava/lang/String;
-
-    iget v3, p0, Lcom/farm3/free/Farm3;->mPort:I
-
-    invoke-interface {v0, v1, v2, v3}, Lcom/lguplus/common/bill/IBillSocket;->connect(Ljava/lang/String;Ljava/lang/String;I)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 158
-    const/4 v0, 0x1
-
-    .line 163
-    :goto_0
-    return v0
-
-    .line 160
-    :catch_0
-    move-exception v0
-
-    .line 163
-    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_0
+    return v0
 .end method
 
 .method Read()Z
-    .locals 8
+    .locals 1
 
     .prologue
-    const/4 v7, 0x1
+    const/4 v0, 0x0
 
-    const/4 v6, 0x0
-
-    .line 185
-    const/16 v4, 0xc
-
-    new-array v0, v4, [B
-
-    .line 187
-    .local v0, "buf":[B
-    :try_start_0
-    iget-object v4, p0, Lcom/farm3/free/Farm3;->BillSock:Lcom/lguplus/common/bill/IBillSocket;
-
-    invoke-interface {v4, v0}, Lcom/lguplus/common/bill/IBillSocket;->readBytes([B)I
-
-    move-result v3
-
-    .line 188
-    .local v3, "ret":I
-    const/4 v4, -0x1
-
-    if-ne v3, v4, :cond_0
-
-    .line 189
-    iget-object v4, p0, Lcom/farm3/free/Farm3;->handler:Landroid/os/Handler;
-
-    new-instance v5, Lcom/farm3/free/Farm3$2;
-
-    invoke-direct {v5, p0}, Lcom/farm3/free/Farm3$2;-><init>(Lcom/farm3/free/Farm3;)V
-
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move v4, v6
-
-    .line 231
-    .end local v3    # "ret":I
-    :goto_0
-    return v4
-
-    .line 199
-    :catch_0
-    move-exception v4
-
-    move-object v1, v4
-
-    .local v1, "e":Landroid/os/RemoteException;
-    move v4, v6
-
-    .line 200
-    goto :goto_0
-
-    .line 203
-    .end local v1    # "e":Landroid/os/RemoteException;
-    .restart local v3    # "ret":I
-    :cond_0
-    iget-object v4, p0, Lcom/farm3/free/Farm3;->paintView:Lcom/farm3/free/PaintView;
-
-    const/16 v5, 0x8
-
-    invoke-virtual {v4, v0, v5}, Lcom/farm3/free/PaintView;->getIntFromByteArray([BI)I
-
-    move-result v2
-
-    .line 204
-    .local v2, "result":I
-    if-ne v2, v7, :cond_1
-
-    .line 207
-    iget-object v4, p0, Lcom/farm3/free/Farm3;->paintView:Lcom/farm3/free/PaintView;
-
-    invoke-virtual {v4}, Lcom/farm3/free/PaintView;->setPurchase()V
-
-    move v4, v7
-
-    .line 208
-    goto :goto_0
-
-    .line 212
-    :cond_1
-    iget-object v4, p0, Lcom/farm3/free/Farm3;->handler:Landroid/os/Handler;
-
-    new-instance v5, Lcom/farm3/free/Farm3$3;
-
-    invoke-direct {v5, p0, v2}, Lcom/farm3/free/Farm3$3;-><init>(Lcom/farm3/free/Farm3;I)V
-
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    move v4, v6
-
-    .line 231
-    goto :goto_0
+    return v0
 .end method
 
 .method public ShowToast(Landroid/content/Context;Ljava/lang/String;)V
@@ -555,57 +329,12 @@
 .end method
 
 .method Write()Z
-    .locals 3
+    .locals 1
 
     .prologue
-    .line 169
-    :try_start_0
-    iget-object v1, p0, Lcom/farm3/free/Farm3;->paintView:Lcom/farm3/free/PaintView;
+    const/4 v0, 0x0
 
-    invoke-virtual {v1}, Lcom/farm3/free/PaintView;->getPacketData()[B
-
-    move-result-object v0
-
-    .line 170
-    .local v0, "buf":[B
-    iget-object v1, p0, Lcom/farm3/free/Farm3;->paintView:Lcom/farm3/free/PaintView;
-
-    const/16 v2, 0x2c
-
-    invoke-virtual {v1, v0, v2}, Lcom/farm3/free/PaintView;->getIntFromByteArray([BI)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/farm3/free/Farm3;->itemPrice2:I
-
-    .line 171
-    iget-object v1, p0, Lcom/farm3/free/Farm3;->BillSock:Lcom/lguplus/common/bill/IBillSocket;
-
-    invoke-interface {v1, v0}, Lcom/lguplus/common/bill/IBillSocket;->writeBytes([B)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 173
-    const/4 v1, 0x1
-
-    .line 182
-    .end local v0    # "buf":[B
-    :goto_0
-    return v1
-
-    .line 175
-    :catch_0
-    move-exception v1
-
-    .line 182
-    :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
+    return v0
 .end method
 
 .method public adInit()V
@@ -1574,7 +1303,7 @@
 .end method
 
 .method public popPurchaseDlg(Ljava/lang/String;I)V
-    .locals 3
+    .locals 2
     .param p1, "itemcode"    # Ljava/lang/String;
     .param p2, "itemPrice"    # I
 
@@ -1586,39 +1315,12 @@
     iput p2, p0, Lcom/farm3/free/Farm3;->itemPrice:I
 
     .line 275
-    new-instance v0, Landroid/content/Intent;
-
-    const-class v1, Lcom/lguplus/common/bill/IBillSocket;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/farm3/free/Farm3;->serviceConn:Landroid/content/ServiceConnection;
-
-    const/4 v2, 0x1
-
-    invoke-virtual {p0, v0, v1, v2}, Lcom/farm3/free/Farm3;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 276
     iget-object v0, p0, Lcom/farm3/free/Farm3;->paintView:Lcom/farm3/free/PaintView;
-
-    iget-object v1, p0, Lcom/farm3/free/Farm3;->paintView:Lcom/farm3/free/PaintView;
-
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     const/16 v1, 0x64
 
     iput v1, v0, Lcom/farm3/free/PaintView;->iNetStatus:I
 
-    .line 279
-    :cond_0
     return-void
 .end method
 
