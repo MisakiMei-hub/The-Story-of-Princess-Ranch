@@ -4,6 +4,12 @@ Android 15 compatibility restoration project for the old Android game `公主牧
 
 This repository contains the decompiled project, compatibility fixes, screenshots, and the final playable APK build for modern Android devices.
 
+## Version Lines
+
+`v1` releases keep the original seed shop behavior unchanged.
+
+`v2` releases include the adjusted seed shop logic.
+
 ## Status
 
 The game now installs and runs on Android 15, with the major issues below fixed:
